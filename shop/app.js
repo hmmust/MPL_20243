@@ -7,8 +7,14 @@ const bodyParser=require('body-parser');
 const path = require("path");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.get("/search",(req,res)=>{
-    res.write('<h1>Hossam</h1>');
-    res.end("<h1>First Application</h1>")
-    });
+
+const searchController = require("./controllers/search");
+
+app.post("/search",searchController.postSearch);
+app.get("/search",searchController.getSearch);
+app.get("/",searchController.getHome);    
+
+//app.all("*",(req,res,next)=>{
+//        res.send("<h1>Page Not Found</h1>")
+//    });  
 app.listen(8080);
