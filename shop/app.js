@@ -16,5 +16,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //    });  
 app.use(searchRouter);
 app.use("/cust",customerRouter);
+// http://localhost:8080/cust/view/2222
 app.listen(8080);
 
