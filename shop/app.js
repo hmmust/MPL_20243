@@ -6,6 +6,7 @@ const app=express();
 
 app.set('view engine','ejs');
 app.set('views','views');
+
 //const mongoose= require('mongoose');
 const bodyParser=require('body-parser');
 const path = require("path");
