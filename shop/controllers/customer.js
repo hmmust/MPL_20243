@@ -1,11 +1,16 @@
-const customers =[];
-
+//const customers =[];
+const customer = require('../models/customer');
 exports.postAdd= (req,res)=>{
-    customers.push({id:req.body.id, name:req.body.name})
+    const new_customer = new customer({
+        name:req.body.name,
+        age:req.body.age,
+        adderss:req.body.address
+    });
+    new_customer.save();
+    //customers.push({id:req.body.id, name:req.body.name})
 
-    res.render("view-customers",{customers:customers})
-    //res.render("view-customer",{id:req.body.id, name:req.body.name})
-    //res.send("<h1>Customer Application (POST method)</h1>"+req.body.id+req.body.name)
+    //res.render("view-customers",{customers:customers})
+
 };
 
 exports.getAdd = (req,res)=>{
