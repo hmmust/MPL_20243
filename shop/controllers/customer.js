@@ -34,4 +34,32 @@ exports.getDeleteCustomer = (req,res)=>{
 
 };
 
+exports.postEditCustomer = (req,res)=>{
+    const customer_id= req.body.id;
+    customer.findById(customer_id).then((cust)=>{
+        res.render("edit-customer",{customer:cust});
+    });
+
+};
+
+
+
+exports.postSaveCustomer = (req,res)=>{
+    const customer_id= req.body.id;
+    const name= req.body.name;
+    const age= req.body.age;
+    const address = req.body.address;
+
+    customer.findById(customer_id).then((cust)=>{
+         cust.name= name;
+         cust.age= age;
+         cust.address = address;
+         cust.save().then((r)=>{
+            res.redirect("/cust/list");
+         });
+     });
+
+};
+
+
 

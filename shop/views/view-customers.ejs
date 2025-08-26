@@ -5,8 +5,8 @@
             <th>Name</th>
             <th>Age</th>
             <th>Address</th>
-            <th>Actions</th>
-        </thead>
+            <th colspan="2">Actions</th>
+        </thead>d
     <tbody>
     <% for(c of customers){ %>
         <tr>
@@ -15,7 +15,12 @@
             <td> <%= c.address %> </td>
             <td>
                 <a href="/cust/delete/<%= c._id %>" class="btn btn-danger p-1">Delete</a> 
-                <a href="" class="btn btn-success p-1">Edit</a>
+            </td>
+            <td>
+                    <form action="/cust/update" method="post">
+                    <input type="hidden" name="id" value="<%= c._id %>">
+                    <button type="submit" class="btn btn-success p-1">Edit</button>
+                </form>
             </td>
         </tr>
         <% } %>
