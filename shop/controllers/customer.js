@@ -21,11 +21,11 @@ exports.getAdd = (req,res)=>{
 };
 
 exports.getCustomers = (req,res)=>{
-    customer.find().then((custs)=>{
-        res.render("view-customers",{customers:custs})
-    });
-};
+        customer.find().then((custs)=>{
+            res.render("view-customers",{customers:custs})
+        });
 
+    }
 exports.getDeleteCustomer = (req,res)=>{
     const customer_id= req.params.customer_id;
     customer.findByIdAndDelete(customer_id).then((cust)=>{
